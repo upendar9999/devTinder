@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const { authRouter } = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const { userAuth } = require("./middlewares/auth");
+const requestRouter = require("./routes/request");
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cookieParser());
 
 app.use("/",authRouter);
 app.use("/",profileRouter);
+app.use("/",requestRouter);
 
 
 app.post("/sendConnectionRequest",userAuth,async (req,res)=>{
